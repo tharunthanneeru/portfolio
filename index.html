@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#050505">
+  <meta name="description" content="Tharun Thanneeru — Data Science, Machine Learning, Computer Vision and software engineering projects.">
+  <meta property="og:title" content="Tharun Thanneeru | Data Science & Software Engineering">
+  <meta property="og:description" content="Selected projects in machine learning, computer vision, and software engineering.">
+  <title>Tharun Thanneeru | Portfolio</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #050505;
+      --surface: #0d0d10;
+      --surface-raised: #111116;
+      --text: #f5f5f7;
+      --muted: #a3a3ad;
+      --subtle: #73737e;
+      --line: #282830;
+      --blue: #168bff;
+      --rose: #ff2d95;
+      --max: 1120px;
+      --radius: 18px;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 92px; }
+    body {
+      margin: 0; background: var(--bg); color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6; -webkit-font-smoothing: antialiased;
+    }
+    body::before {
+      content: ""; position: absolute; inset: 0 0 auto; height: 520px; pointer-events: none; z-index: -1;
+      background: radial-gradient(ellipse at 82% 0%, rgba(22,139,255,.12), transparent 48%),
+                  radial-gradient(ellipse at 12% 22%, rgba(255,45,149,.07), transparent 42%);
+    }
+    a { color: inherit; text-decoration: none; }
+    button, input, textarea { font: inherit; }
+    button { color: inherit; cursor: pointer; }
+    a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible {
+      outline: 2px solid var(--blue); outline-offset: 4px;
+    }
+    .container { width: min(var(--max), calc(100% - 44px)); margin-inline: auto; }
+    .topbar {
+      position: sticky; top: 0; z-index: 20; background: rgba(5,5,5,.96);
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+    .nav { min-height: 70px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand { font-size: 15px; font-weight: 850; letter-spacing: -.055em; white-space: nowrap; }
+    .brand span { color: var(--blue); }
+    .nav-links { display: flex; align-items: center; gap: 7px; }
+    .nav-links a { color: var(--muted); padding: 9px 11px; font-size: 12px; border-radius: 8px; }
+    .nav-links a:hover { color: white; background: #141419; }
+    .nav-links .nav-cta { color: white; border: 1px solid #383842; }
+    .menu-btn { display: none; border: 1px solid var(--line); border-radius: 9px; padding: 8px 11px; background: var(--surface); }
+    .eyebrow { color: var(--blue); font: 700 10px/1.4 ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .16em; text-transform: uppercase; }
+    .hero { padding-block: 105px 76px; display: grid; grid-template-columns: minmax(0,1.3fr) minmax(250px,.7fr); gap: 52px; align-items: center; }
+    .availability { display: inline-flex; align-items: center; gap: 9px; color: var(--muted); font-size: 11px; border: 1px solid var(--line); background: #0c0c0f; padding: 8px 11px; border-radius: 999px; }
+    .availability::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--rose); }
+    h1 { margin: 24px 0 20px; max-width: 720px; font-size: clamp(46px,7.1vw,82px); line-height: .99; letter-spacing: -.075em; font-weight: 800; }
+    .blue { color: var(--blue); }
+    .rose { color: var(--rose); }
+    .hero-copy { max-width: 640px; color: var(--muted); font-size: 15px; line-height: 1.85; }
+    .actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+    .button { display: inline-flex; justify-content: center; align-items: center; gap: 8px; padding: 12px 16px; border-radius: 10px; font-size: 12px; font-weight: 750; border: 1px solid var(--line); background: #0d0d11; transition: border-color .15s ease; }
+    .button:hover { border-color: var(--blue); }
+    .button.primary { color: #050505; background: var(--blue); border-color: var(--blue); }
+    .button.primary:hover { background: #47a4ff; }
+    .hero-panel { border: 1px solid var(--line); border-radius: var(--radius); padding: 23px; background: linear-gradient(150deg,#111116,#09090b); }
+    .panel-top { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding-bottom: 18px; border-bottom: 1px solid var(--line); }
+    .panel-top strong { font-size: 12px; }
+    .panel-top span { font: 10px ui-monospace,monospace; color: var(--subtle); }
+    .focus-list { display: grid; gap: 0; }
+    .focus-item { display: flex; gap: 14px; align-items: flex-start; padding: 17px 0; border-bottom: 1px solid #202027; }
+    .focus-item:last-child { border-bottom: 0; padding-bottom: 0; }
+    .focus-number { color: var(--rose); font: 11px ui-monospace,monospace; padding-top: 2px; }
+    .focus-item strong { display: block; font-size: 13px; margin-bottom: 3px; }
+    .focus-item small { display: block; color: var(--muted); font-size: 11px; line-height: 1.6; }
+    .section { padding-block: 76px; }
+    .section-heading { display: flex; align-items: end; justify-content: space-between; gap: 28px; margin-bottom: 27px; }
+    h2 { margin: 8px 0 0; font-size: clamp(32px,4.7vw,51px); line-height: 1.05; letter-spacing: -.065em; }
+    .section-heading p { max-width: 400px; margin: 0; color: var(--muted); font-size: 12px; line-height: 1.8; }
+    .intro-card { border: 1px solid var(--line); border-radius: var(--radius); padding: 28px; display: grid; grid-template-columns: 1fr 1fr; gap: 32px; background: var(--surface); }
+    .intro-card h3 { font-size: 22px; line-height: 1.25; letter-spacing: -.04em; margin: 0 0 12px; }
+    .intro-card p { color: var(--muted); font-size: 13px; margin: 0; line-height: 1.85; }
+    .principles { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .principle { border: 1px solid var(--line); border-radius: 12px; padding: 14px; background: #09090c; }
+    .principle strong { display: block; font-size: 12px; margin-bottom: 5px; }
+    .principle span { display: block; color: var(--muted); font-size: 10px; line-height: 1.6; }
+    .filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+    .filter { border: 1px solid var(--line); border-radius: 999px; padding: 9px 13px; color: var(--muted); background: #0b0b0e; font-size: 11px; }
+    .filter[aria-pressed="true"] { color: white; border-color: var(--blue); background: rgba(22,139,255,.12); }
+    .project-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 15px; }
+    .project { min-width: 0; border: 1px solid var(--line); border-radius: var(--radius); background: linear-gradient(150deg,#111115,#0b0b0e); overflow: hidden; }
+    .project[hidden] { display: none; }
+    .project-content { padding: 23px; }
+    .project-meta { display: flex; align-items: center; justify-content: space-between; gap: 12px; color: var(--subtle); font: 10px ui-monospace,monospace; }
+    .project-type { color: var(--blue); border: 1px solid rgba(22,139,255,.28); padding: 5px 8px; border-radius: 999px; white-space: nowrap; font-size: 9px; }
+    .project h3 { font-size: 23px; line-height: 1.2; letter-spacing: -.045em; margin: 17px 0 10px; }
+    .project p { color: var(--muted); font-size: 12px; line-height: 1.8; margin: 0; }
+    .project-visual { min-height: 112px; margin-top: 19px; padding: 17px; border: 1px solid #24242d; border-radius: 12px; background: #08080b; display: flex; align-items: center; gap: 9px; overflow: hidden; }
+    .step { flex: 1; min-width: 0; text-align: center; padding: 11px 5px; border: 1px solid #30303a; border-radius: 8px; color: #d7d7df; font: 9px ui-monospace,monospace; }
+    .step.active { border-color: var(--blue); color: #fff; background: rgba(22,139,255,.09); }
+    .step.rose-border { border-color: var(--rose); }
+    .arrow { color: var(--subtle); font-size: 12px; }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 15px; }
+    .tag { padding: 5px 8px; color: #b0b0ba; background: #15151b; border-radius: 6px; font-size: 9px; }
+    details { border-top: 1px solid #25252c; margin-top: 17px; padding-top: 13px; }
+    summary { cursor: pointer; font-size: 11px; color: #d5d5dc; }
+    details p { padding-top: 10px; font-size: 11px; }
+    .project-footer { display: flex; justify-content: space-between; align-items: center; gap: 10px; margin-top: 18px; }
+    .project-footer span { color: var(--subtle); font: 9px ui-monospace,monospace; }
+    .project-footer a { color: var(--blue); font-size: 11px; font-weight: 700; }
+    .project-footer a:hover { color: var(--rose); }
+    .experience-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 32px; }
+    .about-copy { color: var(--muted); font-size: 13px; line-height: 1.9; margin: 0; }
+    .education { border-left: 2px solid var(--rose); padding: 4px 0 4px 17px; margin-top: 24px; }
+    .education small { display: block; color: var(--subtle); font: 10px ui-monospace,monospace; }
+    .education strong { display: block; margin: 7px 0; font-size: 14px; }
+    .skills-panel { border: 1px solid var(--line); background: var(--surface); border-radius: var(--radius); padding: 22px; }
+    .skill-group + .skill-group { margin-top: 21px; }
+    .skill-group h3 { margin: 0 0 10px; font: 700 10px ui-monospace,monospace; letter-spacing: .12em; color: var(--subtle); text-transform: uppercase; }
+    .skill-list { display: flex; flex-wrap: wrap; gap: 7px; }
+    .skill-list span { border: 1px solid #2b2b34; border-radius: 7px; padding: 7px 9px; color: #d0d0d7; font-size: 10px; }
+    .achievement-grid { display: grid; grid-template-columns: repeat(3,1fr); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
+    .achievement { padding: 23px; background: var(--surface); }
+    .achievement + .achievement { border-left: 1px solid var(--line); }
+    .achievement span { color: var(--subtle); font: 10px ui-monospace,monospace; text-transform: uppercase; letter-spacing: .1em; }
+    .achievement strong { display: block; font-size: 32px; letter-spacing: -.06em; margin: 12px 0 4px; }
+    .achievement p { margin: 0; color: var(--muted); font-size: 11px; }
+    .contact-box { display: grid; grid-template-columns: 1fr 1fr; gap: 36px; padding: 30px; border: 1px solid var(--line); border-radius: 20px; background: var(--surface); }
+    .contact-box h2 { max-width: 440px; }
+    .contact-copy p { color: var(--muted); font-size: 13px; line-height: 1.8; }
+    .contact-links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; }
+    .form { display: grid; gap: 12px; }
+    .field { display: grid; gap: 6px; }
+    .field label { color: var(--subtle); font: 10px ui-monospace,monospace; letter-spacing: .1em; }
+    .field input,.field textarea { width: 100%; border: 1px solid var(--line); border-radius: 9px; background: #08080b; color: var(--text); padding: 11px 12px; }
+    .field textarea { min-height: 115px; resize: vertical; }
+    .form-status { min-height: 18px; color: var(--rose); font-size: 11px; }
+    .form-note { color: var(--subtle); font-size: 10px; line-height: 1.6; }
+    footer { border-top: 1px solid var(--line); margin-top: 70px; padding-block: 23px 30px; color: var(--subtle); font: 10px ui-monospace,monospace; }
+    .footer-inner { display: flex; justify-content: space-between; gap: 20px; }
+    .footer-links { display: flex; gap: 16px; flex-wrap: wrap; }
+    .footer-links a:hover { color: var(--blue); }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *,*::before,*::after { transition-duration: .01ms !important; animation-duration: .01ms !important; } }
+    @media (max-width: 820px) {
+      .hero { grid-template-columns: 1fr; gap: 28px; padding-top: 75px; }
+      .hero-panel { max-width: 620px; }
+      .section-heading { align-items: flex-start; flex-direction: column; gap: 10px; }
+      .intro-card,.experience-grid,.contact-box { grid-template-columns: 1fr; }
+      .experience-grid { gap: 22px; }
+    }
+    @media (max-width: 620px) {
+      .container { width: min(var(--max),calc(100% - 30px)); }
+      .nav { min-height: 62px; }
+      .menu-btn { display: block; }
+      .nav-links { display: none; position: absolute; top: 61px; left: 15px; right: 15px; padding: 10px; background: #101014; border: 1px solid var(--line); border-radius: 12px; align-items: stretch; flex-direction: column; }
+      .nav-links.open { display: flex; }
+      .nav-links a { padding: 11px; }
+      .hero { padding-block: 64px 48px; }
+      h1 { font-size: clamp(43px,13vw,62px); }
+      .hero-copy { font-size: 13px; }
+      .section { padding-block: 53px; }
+      .intro-card { padding: 20px; gap: 22px; }
+      .project-grid { grid-template-columns: 1fr; }
+      .project-content { padding: 19px; }
+      .project h3 { font-size: 21px; }
+      .project-visual { padding: 12px 8px; gap: 5px; }
+      .step { font-size: 8px; padding: 10px 3px; }
+      .arrow { font-size: 10px; }
+      .achievement-grid { grid-template-columns: 1fr; }
+      .achievement + .achievement { border-left: 0; border-top: 1px solid var(--line); }
+      .contact-box { padding: 21px; gap: 24px; }
+      .footer-inner { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container nav">
+      <a class="brand" href="#home" aria-label="Tharun Thanneeru home">THARUN <span>THANNEERU</span></a>
+      <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="navLinks">Menu</button>
+      <nav class="nav-links" id="navLinks" aria-label="Main navigation">
+        <a href="#home">Home</a><a href="#work">Projects</a><a href="#about">About</a><a href="#contact">Contact</a>
+        <a href="https://github.com/tharunthanneeru" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+        <a class="nav-cta" href="./Tharun_Thanneeru_Resume.pdf" target="_blank" rel="noopener noreferrer">Resume ↗</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="container hero" id="home">
+      <div>
+        <span class="availability">DATA SCIENCE · SOFTWARE ENGINEERING</span>
+        <h1>Building useful technology with <span class="blue">data</span> and <span class="rose">code.</span></h1>
+        <p class="hero-copy">I’m Tharun Thanneeru, a Computer Science graduate specializing in Data Science. I build machine-learning prototypes, computer-vision applications, and practical software systems with an emphasis on experimentation, performance, and real-world use.</p>
+        <div class="actions">
+          <a class="button primary" href="#work">Explore projects ↘</a>
+          <a class="button" href="./Tharun_Thanneeru_Resume.pdf" target="_blank" rel="noopener noreferrer">View resume ↗</a>
+          <a class="button" href="https://www.linkedin.com/in/tharun-thanneeru-04a40a278/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+        </div>
+      </div>
+      <aside class="hero-panel" aria-label="Professional focus">
+        <div class="panel-top"><strong>FOCUS AREAS</strong><span>01 — 04</span></div>
+        <div class="focus-list">
+          <div class="focus-item"><span class="focus-number">01</span><div><strong>Machine Learning</strong><small>Model evaluation, experimentation and ensemble methods.</small></div></div>
+          <div class="focus-item"><span class="focus-number">02</span><div><strong>Computer Vision</strong><small>Image understanding and real-time video analysis.</small></div></div>
+          <div class="focus-item"><span class="focus-number">03</span><div><strong>Application Development</strong><small>Android, web technologies and practical product builds.</small></div></div>
+          <div class="focus-item"><span class="focus-number">04</span><div><strong>Systems Thinking</strong><small>Reliability, performance and measurable outcomes.</small></div></div>
+        </div>
+      </aside>
+    </section>
+
+    <section class="container section" aria-labelledby="approach-title">
+      <div class="intro-card">
+        <div><span class="eyebrow">My approach</span><h2 id="approach-title" style="font-size:clamp(27px,3.6vw,39px);margin:10px 0 13px">From an idea to a <span class="blue">working solution.</span></h2><p>I treat development as a cycle: understand the problem, define how success will be measured, test a clear baseline, improve based on evidence, and make the result useful to someone beyond the notebook.</p></div>
+        <div class="principles">
+          <div class="principle"><strong>Measure</strong><span>Use meaningful metrics and test assumptions.</span></div>
+          <div class="principle"><strong>Experiment</strong><span>Compare approaches and understand trade-offs.</span></div>
+          <div class="principle"><strong>Build</strong><span>Turn prototypes into usable applications.</span></div>
+          <div class="principle"><strong>Improve</strong><span>Prioritize clarity, reliability and speed.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="container section" id="work">
+      <div class="section-heading"><div><span class="eyebrow">Selected work</span><h2>Projects and <span class="blue">experiments.</span></h2></div><p>A selection of work across machine learning, computer vision, and application engineering. Use the filters to explore areas of interest.</p></div>
+      <div class="filters" role="group" aria-label="Filter projects">
+        <button class="filter" type="button" data-filter="all" aria-pressed="true">All projects</button>
+        <button class="filter" type="button" data-filter="ai" aria-pressed="false">AI / ML</button>
+        <button class="filter" type="button" data-filter="vision" aria-pressed="false">Computer vision</button>
+        <button class="filter" type="button" data-filter="android" aria-pressed="false">Android</button>
+      </div>
+      <div class="project-grid" id="projectGrid">
+        <article class="project" data-category="ai vision">
+          <div class="project-content">
+            <div class="project-meta"><span>01 / FEATURED PROJECT</span><span class="project-type">KAGGLE · DEEP LEARNING</span></div>
+            <h3>Knee Abnormality Detection</h3>
+            <p>Built a multi-label knee abnormality classification pipeline using model comparison, test-time augmentation and prediction-level ensembling.</p>
+            <div class="project-visual" aria-label="Model workflow"><div class="step">ConvNeXt</div><span class="arrow">→</span><div class="step">CoAtNet</div><span class="arrow">→</span><div class="step">DINOv2</div><span class="arrow">→</span><div class="step active">Ensemble</div></div>
+            <div class="tags"><span class="tag">PyTorch</span><span class="tag">Ensembling</span><span class="tag">Multi-label classification</span><span class="tag">Computer vision</span></div>
+            <details><summary>Case-study approach</summary><p>Models were treated as complementary learners. Experiments progressed from single-model baselines to ensemble strategies, including label-specific blending to account for different model strengths across abnormalities.</p></details>
+            <div class="project-footer"><span>RESULT: 0.918 ACCURACY</span><span>FEATURED</span></div>
+          </div>
+        </article>
+
+        <article class="project" data-category="ai vision">
+          <div class="project-content">
+            <div class="project-meta"><span>02</span><span class="project-type">CV · REAL-TIME</span></div>
+            <h3>Real-Time Violence Detection</h3>
+            <p>A video-analysis pipeline that classifies violent activity from pose landmarks and sequential patterns, designed for live camera streams.</p>
+            <div class="project-visual" aria-label="Violence detection workflow"><div class="step">Video</div><span class="arrow">→</span><div class="step">Pose</div><span class="arrow">→</span><div class="step">LSTM</div><span class="arrow">→</span><div class="step active">Classify</div></div>
+            <div class="tags"><span class="tag">Python</span><span class="tag">OpenCV</span><span class="tag">MediaPipe</span><span class="tag">TensorFlow</span><span class="tag">LSTM</span></div>
+            <details><summary>Architecture details</summary><p>MediaPipe extracts pose landmarks from frames, which are arranged into sequences for LSTM-based classification. The pipeline uses concurrent processing to help maintain responsive live inference.</p></details>
+            <div class="project-footer"><span>COMPUTER VISION</span><a href="https://github.com/tharunthanneeru/Violence-Detection" target="_blank" rel="noopener noreferrer">View repository ↗</a></div>
+          </div>
+        </article>
+
+        <article class="project" data-category="android">
+          <div class="project-content">
+            <div class="project-meta"><span>03</span><span class="project-type">ANDROID · OFFLINE</span></div>
+            <h3>MESHTalk — Offline Messaging</h3>
+            <p>An offline-first peer-to-peer messaging application concept built around nearby-device communication without relying on internet connectivity.</p>
+            <div class="project-visual" aria-label="MESHTalk workflow"><div class="step">Discover</div><span class="arrow">→</span><div class="step rose-border">Connect</div><span class="arrow">→</span><div class="step">Message</div></div>
+            <div class="tags"><span class="tag">Kotlin</span><span class="tag">Android</span><span class="tag">Bluetooth</span><span class="tag">Room</span><span class="tag">Coroutines</span></div>
+            <details><summary>Engineering details</summary><p>The Android implementation uses Bluetooth sockets for local communication, Room for local message persistence, Kotlin coroutines for asynchronous work, and JSON serialization for message packets.</p></details>
+            <div class="project-footer"><span>APPLICATION ENGINEERING</span><a href="https://github.com/tharunthanneeru/MESHTalk-Offline-Communication" target="_blank" rel="noopener noreferrer">View repository ↗</a></div>
+          </div>
+        </article>
+
+        <article class="project" data-category="vision">
+          <div class="project-content">
+            <div class="project-meta"><span>04</span><span class="project-type">COMPUTER VISION</span></div>
+            <h3>Adaptive Facial Recognition</h3>
+            <p>A real-time facial recognition project comparing a traditional OpenCV/LBPH baseline with deep facial encodings and frontal-pose checks.</p>
+            <div class="project-visual" aria-label="Facial recognition workflow"><div class="step">Camera</div><span class="arrow">→</span><div class="step">Encode</div><span class="arrow">→</span><div class="step">Pose check</div><span class="arrow">→</span><div class="step active">Match</div></div>
+            <div class="tags"><span class="tag">Python</span><span class="tag">OpenCV</span><span class="tag">Facial encodings</span><span class="tag">Pose estimation</span></div>
+            <details><summary>Pipeline details</summary><p>The system extracts facial encodings and applies a head-pose check before displaying recognition results, helping restrict matches to suitable frontal views.</p></details>
+            <div class="project-footer"><span>REAL-TIME INFERENCE</span><a href="https://github.com/tharunthanneeru/Facial-recognition" target="_blank" rel="noopener noreferrer">View repository ↗</a></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="container section" id="about">
+      <div class="section-heading"><div><span class="eyebrow">About & skills</span><h2>Grounded in data.<br><span class="rose">Focused on building.</span></h2></div><p>Computer Science graduate with a Data Science specialization and an interest in practical machine learning and software systems.</p></div>
+      <div class="experience-grid">
+        <div>
+          <p class="about-copy">I graduated in Computer Science Engineering with a specialization in Data Science from Vidya Jyothi Institute of Technology. I enjoy exploring machine-learning methods, building application prototypes, and understanding how to make software more reliable and useful.</p>
+          <div class="education"><small>2022 — 2026 · GRADUATED</small><strong>B.Tech — Computer Science Engineering, Data Science</strong><small>Vidya Jyothi Institute of Technology · CGPA 8.5</small></div>
+        </div>
+        <div class="skills-panel">
+          <div class="skill-group"><h3>Machine learning & vision</h3><div class="skill-list"><span>PyTorch</span><span>TensorFlow</span><span>Scikit-learn</span><span>OpenCV</span><span>MediaPipe</span><span>Deep Learning</span><span>Prompt Engineering</span></div></div>
+          <div class="skill-group"><h3>Programming</h3><div class="skill-list"><span>Python</span><span>Java</span><span>C++</span><span>R</span><span>JavaScript</span><span>SQL</span></div></div>
+          <div class="skill-group"><h3>Web & systems</h3><div class="skill-list"><span>React</span><span>Node.js</span><span>HTML / CSS</span><span>JSP</span><span>MySQL</span><span>Oracle DB</span><span>Git</span><span>Power BI</span><span>DevOps</span></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="container section" aria-label="Achievements">
+      <div class="section-heading"><div><span class="eyebrow">Highlights</span><h2>Achievements & <span class="blue">recognition.</span></h2></div></div>
+      <div class="achievement-grid">
+        <div class="achievement"><span>Workshop</span><strong>Top 5</strong><p>Generative AI Workshop</p></div>
+        <div class="achievement"><span>Hackathon</span><strong>Top 10</strong><p>College Hackathon · 75+ teams</p></div>
+        <div class="achievement"><span>Competition</span><strong>1st</strong><p>College Quiz Competition</p></div>
+      </div>
+    </section>
+
+    <section class="container section" id="contact">
+      <div class="contact-box">
+        <div class="contact-copy"><span class="eyebrow">Contact</span><h2>Let's build something <span class="blue">meaningful.</span></h2><p>For job opportunities, collaborations, software projects or research ideas, feel free to get in touch.</p><div class="contact-links"><a class="button" href="mailto:tharunthanneeru@gmail.com">Email me ↗</a><a class="button" href="https://www.linkedin.com/in/tharun-thanneeru-04a40a278/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a></div></div>
+        <form class="form" id="contactForm">
+          <div class="field"><label for="name">NAME</label><input id="name" name="name" autocomplete="name" required></div>
+          <div class="field"><label for="email">EMAIL</label><input id="email" name="email" type="email" autocomplete="email" required></div>
+          <div class="field"><label for="message">MESSAGE</label><textarea id="message" name="message" required placeholder="What would you like to discuss?"></textarea></div>
+          <button class="button primary" type="submit">Prepare email ↗</button>
+          <div class="form-status" id="formStatus" role="status" aria-live="polite"></div>
+          <div class="form-note">This form opens your default email app with the message prepared. It does not store or send data through a server.</div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="container footer-inner"><span>© 2026 Tharun Thanneeru · Portfolio</span><div class="footer-links"><a href="https://github.com/tharunthanneeru" target="_blank" rel="noopener noreferrer">GitHub</a><a href="https://kaggle.com/tharunthanneeru" target="_blank" rel="noopener noreferrer">Kaggle</a><a href="https://www.linkedin.com/in/tharun-thanneeru-04a40a278/" target="_blank" rel="noopener noreferrer">LinkedIn</a><a href="./Tharun_Thanneeru_Resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a><a href="#home">Back to top ↑</a></div></div></footer>
+
+  <script>
+    (() => {
+      const menuButton = document.getElementById('menuBtn');
+      const nav = document.getElementById('navLinks');
+      menuButton.addEventListener('click', () => {
+        const open = nav.classList.toggle('open');
+        menuButton.setAttribute('aria-expanded', String(open));
+      });
+      nav.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+        nav.classList.remove('open');
+        menuButton.setAttribute('aria-expanded', 'false');
+      }));
+
+      const filters = [...document.querySelectorAll('[data-filter]')];
+      const projects = [...document.querySelectorAll('.project[data-category]')];
+      filters.forEach(button => button.addEventListener('click', () => {
+        const selected = button.dataset.filter;
+        filters.forEach(item => item.setAttribute('aria-pressed', String(item === button)));
+        projects.forEach(project => {
+          project.hidden = selected !== 'all' && !project.dataset.category.split(' ').includes(selected);
+        });
+      }));
+
+      const form = document.getElementById('contactForm');
+      const status = document.getElementById('formStatus');
+      form.addEventListener('submit', event => {
+        event.preventDefault();
+        if (!form.reportValidity()) return;
+        const name = document.getElementById('name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const message = document.getElementById('message').value.trim();
+        const subject = encodeURIComponent(`Portfolio message from ${name}`);
+        const body = encodeURIComponent(`Hi Tharun,\n\n${message}\n\n— ${name}\n${email}`);
+        status.textContent = 'Opening your email app…';
+        window.location.href = `mailto:tharunthanneeru@gmail.com?subject=${subject}&body=${body}`;
+      });
+    })();
+  </script>
+</body>
+</html>
